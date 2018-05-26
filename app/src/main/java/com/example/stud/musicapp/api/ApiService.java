@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiService {
 
     public static ApiClient getService() {
-        Restrofit retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://www.theaudiodb.com/api/v1/json/1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
