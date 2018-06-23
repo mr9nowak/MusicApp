@@ -3,9 +3,11 @@ package com.example.stud.musicapp.topsongs;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.stud.musicapp.R;
 import com.example.stud.musicapp.api.ApiService;
 import com.example.stud.musicapp.api.Track;
@@ -73,5 +75,10 @@ public class SongDetailsActivity extends AppCompatActivity {
         tvGenre.setText(track.strGenre);
         tvStyle.setText(track.strStyle);
         tvDescription.setText(track.strDescriptionEN);
+
+        if (track.strTrackThumb != null && !track.strTrackThumb.isEmpty()) {
+            ImageView ivThumb = findViewById(R.id.ivThumb);
+            Glide.with(this).load(track.strTrackThumb).into(ivThumb);
+        }
     }
 }
